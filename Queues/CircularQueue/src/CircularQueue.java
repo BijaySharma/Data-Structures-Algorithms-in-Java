@@ -11,8 +11,16 @@ public class CircularQueue<T> {
         elements = (T[]) Array.newInstance(clazz, MAX_SIZE);
     }
 
-    public static class QueueOverFlowException extends Exception{}
-    public static class QueueUnderFlowException extends Exception{}
+    public static class QueueOverFlowException extends Exception{
+        public QueueOverFlowException(){
+            super("Queue Overflow");
+        }
+    }
+    public static class QueueUnderFlowException extends Exception{
+        public QueueUnderFlowException(){
+            super("Queue Under flow");
+        }
+    }
 
     public boolean isFull(){
         return (tailIndex + 1) % elements.length == headIndex;
